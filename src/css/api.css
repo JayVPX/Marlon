@@ -1,0 +1,293 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+  scroll-behavior: smooth;
+  background-color: #1e293b;
+}
+.logo {
+  display: flex;
+  margin: 0 auto;
+  width: 700px;
+}
+.inputSection {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+#guess {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border-radius: 8px;
+  color: #1e293b;
+  background-color: #eaeaea;
+}
+#submitGuess {
+  padding: 8px 16px;
+  font-size: 16px;
+  margin-left: 8px;
+  border-radius: 10px;
+  background-color: #4f46e5;
+  color: #eaeaea;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn {
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #4f46e5;
+  color: #eaeaea;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.guessHeader {
+  display: grid;
+  grid-template-columns: 80px repeat(7, 100px);
+  gap: 5px;
+  margin: 20px auto 10px auto;
+  justify-content: center;
+}
+
+.headerBox {
+  display: flex;
+  background-color: #1e293b;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  /* border-radius: 10px; */
+  border-bottom: 2px solid #eaeaea;
+  font-size: 16px;
+  line-height: 2;
+  color: #eaeaea;
+}
+
+#guessesContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.guessLine {
+  display: grid;
+  grid-template-columns: 80px repeat(7, 100px); /* 1 coluna de imagem + 7 atributos */
+  gap: 5px;
+  margin: 8px 0;
+}
+
+.guessBox {
+  height: 60px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 14px;
+
+  /* transição   */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.guessBox.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.guessBox img {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+}
+
+.guessBox.green {
+  background-color: #4caf50;
+}
+.guessBox.red {
+  background-color: #f44336;
+}
+
+.guessBox.whiteBg {
+  background-color: white;
+  padding: 5px;
+}
+
+.modalContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #3341556e;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContainer.active {
+  display: inline-block;
+}
+
+.htpModal {
+  display: block;
+  padding: 2rem;
+  text-align: center;
+  background: #1e293b;
+  position: relative;
+  top: 200px;
+  left: 600px;
+  margin: 2rem;
+  width: 600px;
+  border-radius: 8px;
+}
+
+.htpModal h2 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  background: #1e293b;
+  font-family: "Oswald", sans-serif;
+  color: #eaeaea;
+  border-bottom: 2px solid #eaeaea;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.htpModal p {
+  margin-top: 20px;
+  text-align: justify;
+  color: #eaeaea;
+  background: #1e293b;
+  margin-bottom: 30px;
+}
+
+.green {
+  color: #4caf50;
+  background: #1e293b;
+
+  font-weight: bolder;
+}
+.red {
+  color: #d32f2f;
+  background: #1e293b;
+
+  font-weight: bolder;
+}
+
+.button {
+  /* position: fixed;
+  top: 20px;
+  right: 40px; */
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #4f46e5;
+  color: #eaeaea;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btnTwo {
+  position: fixed;
+  width: 100px;
+  top: 20px;
+  left: 40px;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #eaeaea;
+  color: #1e293b;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.winContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #3341556e;
+  align-items: center;
+  justify-content: center;
+}
+
+.winContainer.active {
+  display: inline-block;
+}
+
+.winModal {
+  display: block;
+  padding: 2rem;
+  text-align: center;
+  background: #1e293b;
+  position: relative;
+  top: 200px;
+  left: 600px;
+  margin: 2rem;
+  width: 600px;
+  border-radius: 8px;
+}
+
+.winModal h2 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  background: #1e293b;
+  font-family: "Oswald", sans-serif;
+  color: #eaeaea;
+  border-bottom: 2px solid #1e293b;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.winModal p {
+  margin-top: 20px;
+  text-align: justify;
+  color: #eaeaea;
+  background: #1e293b;
+
+  margin-bottom: 30px;
+}
+
+.buttonOne {
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #4f46e5;
+  color: #eaeaea;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.buttonTwo {
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #eaeaea;
+  color: #1e293b;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
