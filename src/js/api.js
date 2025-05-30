@@ -38,11 +38,6 @@ async function getRandomPokemon() {
   return randomPkm;
 }
 
-//Função que compara os atributos dos pokemons e retorna uma flag "GREEN" (Truth) ou "RED" (false).
-function comparePokemonAtributos(atributoGuessPkm, atributoRandomPkm) {
-  return atributoGuessPkm === atributoRandomPkm ? "green" : "red";
-}
-
 //Função que pega os dados do Pokemon escolhido pelo usuário
 async function getGuessedPokemon(randomPkmData) {
   try {
@@ -55,7 +50,7 @@ async function getGuessedPokemon(randomPkmData) {
     //Captura a response 404 para dizer que o pokémon não foi encontrado
     if (!guessResponse.ok) {
       if (guessResponse.status === 404) {
-        throw new Error("Pokémon não encontrado! Tente novamente.");
+        throw new Error("Pokémon não encontrado, tente novamente!");
       }
       throw new Error("Erro ao buscar Pokémon. Tente novamente mais tarde."); // Para outros erros
     }
@@ -84,9 +79,9 @@ async function getGuessedPokemon(randomPkmData) {
     console.log(guessedPkm);
 
     renderGuess(guessedPkm, randomPkmData);
-  } catch (error) {
+  } catch (Error) {
     Toastify({
-      text: error.message,
+      text: Error.message,
       duration: 3000,
       gravity: "top",
       position: "center",
@@ -94,6 +89,11 @@ async function getGuessedPokemon(randomPkmData) {
       stopOnFocus: true,
     }).showToast();
   }
+}
+
+//Função que compara os atributos dos pokemons e retorna uma flag "GREEN" (Truth) ou "RED" (false).
+function comparePokemonAtributos(atributoGuessPkm, atributoRandomPkm) {
+  return atributoGuessPkm === atributoRandomPkm ? "green" : "red";
 }
 
 //Função que renderiza os dados do Pokemon escolhido pelo usuáiro
@@ -131,6 +131,8 @@ function renderGuess(guessed, random) {
     </div>
     ${attributesContainer}
   `;
+
+  console.log(attributesContainer);
 
   //Metódo que faz possível a criação de um elemento filho no container
   container.insertBefore(div, container.firstChild);
